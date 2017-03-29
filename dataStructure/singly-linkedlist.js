@@ -43,6 +43,7 @@ SinglyLinkedList.prototype.append = function (val) {
 
 var arr = [1, 2, 3];
 var sll = new SinglyLinkedList();
-var sll = arr.forEach(function(val){
- return sll.prepend(val);
+arr.forEach(function(val){
+  sll.prepend(val);
 });
+// console.log(sll);
