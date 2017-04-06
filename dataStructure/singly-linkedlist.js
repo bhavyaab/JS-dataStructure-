@@ -49,7 +49,7 @@ SinglyLinkedList.prototype.print = function(){
     str += current.val + ' ';
     current = current.next;
   }
-  console.log('\n SinglyLinkedList values are =  ' + str + '\n');
+  console.log('\nSinglyLinkedList values are =  ' + str + '\n');
 };
 //Remove Dups: remove duplicates from an unshorted liked list
 SinglyLinkedList.prototype.removeDup = function () {
@@ -69,9 +69,22 @@ SinglyLinkedList.prototype.removeDup = function () {
   };
   return this.head;
 };
-SinglyLinkedList.prototype.insertInMiddle = function(val, current, prev){
-
+//Return kth to last of SinglyLinkedList
+SinglyLinkedList.prototype.kthToLast = function(k){
+  var current = this.head;
+  var currentIndex = 1;
+  var kthToLast = current;
+  while(current){
+    if((currentIndex - k) > 0){
+      kthToLast = kthToLast.next;
+    }
+    current = current.next;
+    currentIndex++;
+  }
+  console.log('kthToLast == ', kthToLast.val);
+  return kthToLast.val;
 };
+
 // SinglyLinkedList.prototype.short = function () {
 //   var current = this.head;
 //   var small = this.val;
@@ -95,14 +108,14 @@ SinglyLinkedList.prototype.insertInMiddle = function(val, current, prev){
 //   return this.head;
 // };
 
-var arr = [1, 2, 3, 1, 8, 9, 4, 1, 4, 1, 1,1, 5, 4, 4, 4, 15];
+var arr = [1, 2, 3, 4, 5,7, 8, 66, 22, 15];
 var sll = new SinglyLinkedList();
 arr.forEach(function(val){
   sll.prepend(val);
 });
 
 sll.print();
-
-sll.short();
+sll.kthToLast(5);
+// sll.short();
 // sll.removeDup();
-sll.print();
+// sll.print();

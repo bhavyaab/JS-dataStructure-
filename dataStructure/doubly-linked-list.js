@@ -3,7 +3,7 @@
 function Node(val){
   this.val = val;
   this.next = null;
-  this.head = null;
+  this.prev = null;
 };
 
 function DoublyLinkedList(arr){
