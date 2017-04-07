@@ -71,6 +71,7 @@ SinglyLinkedList.prototype.removeDup = function () {
 };
 //Return kth to last of SinglyLinkedList
 SinglyLinkedList.prototype.kthToLast = function(k){
+  if(this.head = null || k < 1 || k = null) return null;
   var current = this.head;
   var currentIndex = 1;
   var kthToLast = current;
@@ -108,6 +109,77 @@ SinglyLinkedList.prototype.kthToLast = function(k){
 //   return this.head;
 // };
 
+
+
+
+// Implement an algorithm to delete a node in the middle of a single linked list, given
+// only access to that node.
+// EXAMPLE
+// Input: the node ‘c’ from the linked list a->b->c->d->e
+// Result: nothing is returned, but the new linked list looks like a->b->d->e
+
+SinglyLinkedList.prototype.deleteFromMiddle= function(node){
+  if(node == null) return fasle; // fail
+  var current = this.head;
+    var pre = null;
+  while(current){
+    if(current.val === node){
+      var next = current.next;
+      current = pre;
+      current.next = next;
+    }
+    pre = current;
+    current = current.next;
+  }
+  return this.head;
+}
+
+// You have two numbers represented by a linked list, where each node contains a single
+// digit. The digits are stored in reverse order, such that the 1’s digit is at the head of
+// the list. Write a function that adds the two numbers and returns the sum as a linked
+// list.
+// EXAMPLE
+// Input: (3 -> 1 -> 5) + (5 -> 9 -> 2)
+// Output: 8 -> 0 -> 8
+// 1. result.data = (node1 + node2 + any earlier carry) % 10
+// 2. if node1 + node2 > 10, then carry a 1 to the next addition.
+// 3. add the tails of the two nodes, passing along the carry
+
+var addTwoLInkedList = function(linkedList1, linkedList2){
+
+}
+
+// Given a circular linked list, implement an algorithm which returns node at the beginning of the loop.
+// DEFINITION
+// Circular linked list: A (corrupt) linked list in which a node’s next pointer points to an
+// earlier node, so as to make a loop in the linked list.
+// EXAMPLE
+// Input: A -> B -> C -> D -> E -> C [the same C as earlier]
+// Output: C
+
+var retrunNodeOfBeginingOfList = function(){
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var arr = [1, 2, 3, 4, 5,7, 8, 66, 22, 15];
 var sll = new SinglyLinkedList();
 arr.forEach(function(val){
@@ -115,7 +187,8 @@ arr.forEach(function(val){
 });
 
 sll.print();
-sll.kthToLast(5);
+sll.deleteFromMiddle(5);
+// sll.kthToLast(5);
 // sll.short();
 // sll.removeDup();
-// sll.print();
+sll.print();
