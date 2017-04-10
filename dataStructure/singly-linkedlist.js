@@ -71,7 +71,7 @@ SinglyLinkedList.prototype.removeDup = function () {
 };
 //Return kth to last of SinglyLinkedList
 SinglyLinkedList.prototype.kthToLast = function(k){
-  if(this.head = null || k < 1 || k = null) return null;
+  if(this.head === null || k < 1 || k === null) return null;
   var current = this.head;
   var currentIndex = 1;
   var kthToLast = current;
@@ -82,10 +82,26 @@ SinglyLinkedList.prototype.kthToLast = function(k){
     current = current.next;
     currentIndex++;
   }
-  console.log('kthToLast == ', kthToLast.val);
   return kthToLast.val;
 };
-
+SinglyLinkedList.prototype.kthToLast2 = function(k) {
+  if(!this.head || k < 1) {
+    return undefigned;
+  }
+  let current = this.head;
+  let kthToLast = current;
+  for (var i = 0; i < k - 1; i++) {
+    current = current.next;
+    if (!current.next) {
+      return;
+    }
+  }
+  while (current.next) {
+    kthToLast = kthToLast.next;
+    current = current.next;
+  }
+  return kthToLast.val;
+};
 // SinglyLinkedList.prototype.short = function () {
 //   var current = this.head;
 //   var small = this.val;
@@ -119,9 +135,9 @@ SinglyLinkedList.prototype.kthToLast = function(k){
 // Result: nothing is returned, but the new linked list looks like a->b->d->e
 
 SinglyLinkedList.prototype.deleteFromMiddle= function(node){
-  if(node == null) return fasle; // fail
+  if(node === null) return fasle; // fail
   var current = this.head;
-    var pre = null;
+  var pre = null;
   while(current){
     if(current.val === node){
       var next = current.next;
@@ -132,7 +148,7 @@ SinglyLinkedList.prototype.deleteFromMiddle= function(node){
     current = current.next;
   }
   return this.head;
-}
+};
 
 // You have two numbers represented by a linked list, where each node contains a single
 // digit. The digits are stored in reverse order, such that the 1’s digit is at the head of
@@ -147,7 +163,7 @@ SinglyLinkedList.prototype.deleteFromMiddle= function(node){
 
 var addTwoLInkedList = function(linkedList1, linkedList2){
 
-}
+};
 
 // Given a circular linked list, implement an algorithm which returns node at the beginning of the loop.
 // DEFINITION
@@ -158,8 +174,8 @@ var addTwoLInkedList = function(linkedList1, linkedList2){
 // Output: C
 
 var retrunNodeOfBeginingOfList = function(){
-  
-}
+
+};
 
 
 
