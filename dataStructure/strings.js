@@ -104,8 +104,8 @@ var turnNinetyDegree = function(matrix){
   console.log(matrix);
   for(var i = 0; i < (n/2 - 1); i++){
     for(var j = 0; j < n/2; j++){
-      var temp = matrix[i][j];
-      matrix[i][j] = matrix[n - j - 1][i];
+      var temp = matrix[i][j];       // save current element into a varriable
+      matrix[i][j] = matrix[n - j - 1][i];    // rotate all at the same time
       matrix[n - j - 1][i] = matrix[n - i - 1][n - j - 1];
       matrix[n - i - 1][n - j - 1] = matrix[j][n - j - 1];
       matrix[j][n - j - 1] = temp;
@@ -115,4 +115,5 @@ var turnNinetyDegree = function(matrix){
 };
 
 var matrix = [[1,2,3],[4,5,6], [7,8,9]];
+var matrix2 = [[1,2,3,4,5],[]];
 turnNinetyDegree(matrix);
