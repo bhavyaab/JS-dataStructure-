@@ -4,9 +4,9 @@
 
 
 //________________________________________________________________________;
-//QUESTION: How would you design a stack which, in addition to push and pop,
-//also has a function min which returns the minimum element? Push, pop and
-//min should all operate in O(1) time.
+/*QUESTION: How would you design a stack which, in addition to push and pop,
+also has a function min which returns the minimum element? Push, pop and
+min should all operate in O(1) time.*/
 
 var Stacks = function(){
   this.array = new Array();
@@ -36,40 +36,58 @@ Stacks.prototype.pop = function () {
   return this.array;
 };//complaxity of O(1)
 
-var stack = new Stacks();
-stack.push(9);
-console.log(stack);
-stack.push(9);
-stack.push(11);
-stack.push(2);
-console.log(stack);
-stack.push(7);
-console.log(stack);
-stack.pop();
-console.log(stack);
-stack.pop();stack.pop();stack.pop();
-console.log(stack);
+// var stack = new Stacks();
+// stack.push(9);
+// console.log(stack);
+// stack.push(9);
+// stack.push(11);
+// stack.push(2);
+// console.log(stack);
+// stack.push(7);
+// console.log(stack);
+// stack.pop();
+// console.log(stack);
+// stack.pop();stack.pop();stack.pop();
+// console.log(stack);
 // ___________________________________________________________;
 
-//QUESTION: Imagine a (literal) stack of plates. If the stack gets too high, it might topple. Therefore,
-// in real life, we would likely start a new stack when the previous stack exceeds
-// some threshold. Implement a data structure SetOfStacks that mimics this. SetOfStacks
-// should be composed of several stacks, and should create a new stack once
-// the previous one exceeds capacity. SetOfStacks.push() and SetOfStacks.pop() should
-// behave identically to a single stack (that is, pop() should return the same values as it
-// would if there were just a single stack).
-// FOLLOW UP
-// Implement a function popAt(int index) which performs a pop operation on a specific
-// sub-stack.
+/*QUESTION: Imagine a (literal) stack of plates. If the stack gets too high, it might topple. Therefore,
+in real life, we would likely start a new stack when the previous stack exceeds
+some threshold. Implement a data structure SetOfStacks that mimics this. SetOfStacks
+should be composed of several stacks, and should create a new stack once
+the previous one exceeds capacity. SetOfStacks.push() and SetOfStacks.pop() should
+behave identically to a single stack (that is, pop() should return the same values as it
+would if there were just a single stack).
+FOLLOW UP
+Implement a function popAt(int index) which performs a pop operation on a specific
+sub-stack.*/
 
-var SetOfStacks = function(length){
-  this.array = Array(length);
+var SetOfStacks = function(size){
+  this.array = new Array();
+  this.size = size;
 };
 
 SetOfStacks.prototype.push = function(value){
-};
+  if(this.array.length === 0 || this.stack.array.length === this.size) {
+    this.stack = new Stacks();
+    this.array.push(this.stack);
+  }
+  this.stack.push(value);
+};//complexity O(1)
 
 SetOfStacks.prototype.pop = function (value) {
+  if(this.array.length === 0) return null;
+  this.array[this.array.length - 1].pop();
+};//complexity O(1)
 
-};
-//___________________________________________________________;
+var setStack = new SetOfStacks(3);
+setStack.push(2);
+setStack.push(3);
+setStack.push(5);
+setStack.push(6);
+setStack.push(61);
+setStack.push(7);
+setStack.pop();
+setStack.push(22);
+console.log(setStack.array);
+//___________________________________________________________
