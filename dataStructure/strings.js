@@ -74,7 +74,7 @@ var anagramStrings1 = function(str1, str2){
 
 var anagramStrings = function(str1, str2){
   if(str1 === null || str2 === null) return 'fail';
-  if(str1.length !== str2.length) return console.log('two strings are not not anagrams');;
+  if(str1.length !== str2.length) return console.log('two strings are not not anagrams');
   for(var i = 0; i < str1.length; i++){
     var char = str1.charAt(i);
     if(str2.indexOf(char) === -1) return console.log('two strings are not anagrams');
@@ -89,30 +89,56 @@ var anagramStrings = function(str1, str2){
 
 //QUESTION: Write a method to replace all spaces in a string with ‘%20’
 
-var replaceWithSpace = function(str){
-  return console.log(str.split(' ').join('%20'));
+var urlfyString = function(str){
+  return console.log(str.trim().split(' ').join('%20'));
 }; //complaxity O(1)
-// replaceWithSpace('acd mkd lss');
+// urlfyString('acd mkd lss  ');
 
 
-//QUESTION: Given an image represented by an NxN matrix, where each pixel in the image is 4
-// bytes, write a method to rotate the image by 90 degrees. Can you do this in place?
+//QUESTION:  Write a method for two strings to check if one is permutation of other.
 
+var checkPermutation= function(str1, str2){
+  if(str1 === null || str2 === null) return 'fail';
+  if(str1.length !== str2.length) return console.log('two strings are NOT permutation of each other');
+  if(str1.toLowerCase().split('').sort().join() === str2.toLowerCase().split('').sort().join()) return console.log('two strings: ' + str1 +' and ' + str2 + 'are permutation of other');
 
-var turnNinetyDegree = function(matrix){
-  var n = matrix.length;
-  console.log(matrix);
-  for(var i = 0; i < (n/2 - 1); i++){
-    for(var j = 0; j < n/2; j++){
-      var temp = matrix[i][j];
-      matrix[i][j] = matrix[n - j - 1][i];
-      matrix[n - j - 1][i] = matrix[n - i - 1][n - j - 1];
-      matrix[n - i - 1][n - j - 1] = matrix[j][n - j - 1];
-      matrix[j][n - j - 1] = temp;
+  return console.log('two strings: ' + str1 +' and ' + str2 + ' are NOT permutation of other');
+}; // complaxity O(2N)
+// checkPermutation('God ', 'dog');
+
+//QUESTION: Given a string Write a function to check if it is a permutation of a palindrome.
+//A palindrome is a word or phrage that is same forward and backbards.
+//A permutation is a rearrangement of letters. The palidrome does not
+//need to be limited to just dictionary words.
+// EXAMPLE: input: 'Tact coa' Out put: True(permutations: 'taco cat', 'atco cta' etc);
+var swap = function (array, pos1, pos2) {
+  var temp = array[pos1];
+  array[pos1] = array[pos2];
+  array[pos2] = temp;
+};
+
+var permutation = function(string, arr){
+  var result = arr || [];
+  if(string.length < 1) return 'fail';
+  console.log(string);
+  for(var i = 0; i < string.length; i++){
+    var first = string.charAt(i);
+    var rest = string.substring(i,0) + string.substring(string.length, i + 1);
+    if(rest.length < 2){
+      result.push(first + rest);
+      result.push(rest + first);
+    } else {
+      permutation(rest, result);
     }
-    console.log(matrix);
+    console.log(result);
+    return result;
   }
 };
 
-var matrix = [[1,2,3],[4,5,6], [7,8,9]];
-turnNinetyDegree(matrix);
+function palindromePermutation(str){
+  if(str === null) return 'fail';
+  str = str.toLowerCase().split('').join('');
+  permutation(str, []);
+  console.log(str);
+}
+palindromePermutation('Tact coa');
