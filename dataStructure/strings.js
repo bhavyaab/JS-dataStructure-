@@ -117,28 +117,42 @@ var swap = function (array, pos1, pos2) {
   array[pos2] = temp;
 };
 
-var permutation = function(string, arr){
-  var result = arr || [];
-  if(string.length < 1) return 'fail';
-  console.log(string);
-  for(var i = 0; i < string.length; i++){
-    var first = string.charAt(i);
-    var rest = string.substring(i,0) + string.substring(string.length, i + 1);
-    if(rest.length < 2){
-      result.push(first + rest);
-      result.push(rest + first);
-    } else {
-      permutation(rest, result);
-    }
-    console.log(result);
+
+// var turnNinetyDegree = function(matrix){
+//   var n = matrix.length;
+//   console.log(matrix);
+//   for(var i = 0; i < (n/2 - 1); i++){
+//     for(var j = 0; j < n/2; j++){
+//       var temp = matrix[i][j];       // save current element into a varriable
+//       matrix[i][j] = matrix[n - j - 1][i];    // rotate all at the same time
+//       matrix[n - j - 1][i] = matrix[n - i - 1][n - j - 1];
+//       matrix[n - i - 1][n - j - 1] = matrix[j][n - j - 1];
+//       matrix[j][n - j - 1] = temp;
+//     }
+//     console.log(matrix);
+//   }
+// };
+//
+// var matrix = [[1,2,3],[4,5,6], [7,8,9]];
+// var matrix2 = [[1,2,3,4,5],[]];
+// turnNinetyDegree(matrix);
+___________________________________________________________;
+
+var permutation = function(string){
+  var result = [];
+  if(string.length === 1){
+    result.push(string);
     return result;
   }
+  for(var i = 0; i < string.length; i++){
+    var first = string[i];
+    var left = string.substring(i,0) + string.substring(i + 1);
+    var combinations = permutation(left);
+    for(var j = 0; j < combinations.length; j++){
+      result.push(combinations[j] + first );
+    }
+  }
+  // console.log('result - ' , result);
+  return result;
 };
-
-function palindromePermutation(str){
-  if(str === null) return 'fail';
-  str = str.toLowerCase().split('').join('');
-  permutation(str, []);
-  console.log(str);
-}
-palindromePermutation('Tact coa');
+console.log(permutation('abc'));
