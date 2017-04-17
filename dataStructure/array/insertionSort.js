@@ -1,4 +1,5 @@
 //<---------------------- ARRAY INSERION SHORT: ----------------------------------->
+//order of complaxity = best - 2 average: n^2; worst: n^2
 
 var insertionSort = function(array){
   for(var i = 0; i < array.length; i++){
@@ -18,9 +19,10 @@ var sortArr = insertionSort(arr);
 console.log('sort array - ', sortArr, sortArr.length);
 
 /*
-Bucket sort
-Bubble sort
-Insertion sort - order of complaxity = best - 2 average: n^2; worst: n^2
-Selection sort
+Bucket sort ::-
+Bubble sort ::-
+Selection sort ::-
+Insertion sort ::- order of complaxity = best - 2 average: n^2; worst: n^2
 Heapsort
-Mergesort */
+Mergesort
+*/
