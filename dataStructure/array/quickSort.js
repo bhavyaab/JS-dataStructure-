@@ -8,8 +8,8 @@ function swap(arr, i, j){
 }
 
 
-function quickSort(arr,start, end){
-  if(start > arr.length) return;
+var quickSort = function(arr,start, end){
+  if(start > arr.length || end < 0) return;
   var startValue = arr[start];
   var endValue = arr[end];
   if(startValue > endValue){
@@ -19,17 +19,13 @@ function quickSort(arr,start, end){
       }
     }
   }
-  // quickSort(arr, start++, end);
-  // quickSort(arr, start, end--);
+  console.log('arr - ' + arr);
+  // quickSort(arr, start++, end--);
   return arr;
-
-}
+};
 var arr =  [ 35, 4, 16, 4, 65, 1, 64, 1, 43, 3, 10, 2];
 console.log('array - ', arr, arr.length);
-for(var i = 0; i < arr.length; i++){
-  quickSort(arr, i, arr.length - 1);
-  quickSort(arr, 0, arr.length - 1 - i);
-}
+quickSort( 0, arr.length - 1);
 console.log('array -- ', arr);
 // var sortArr = quickSort(arr, 0, n);
 // console.log('sort array - ', sortArr, sortArr.length);
