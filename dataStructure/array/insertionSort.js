@@ -1,28 +1,23 @@
-//<---------------------- ARRAY INSERION SHORT: ----------------------------------->
-//order of complaxity = best - 2 average: n^2; worst: n^2
+'use strict';
 
-var insertionSort = function(array){
-  for(var i = 0; i < array.length; i++){
-    var temp = array[i];
-    for(var j = i - 1; j > -1 && array[j] > temp; j--){
-      array[j + 1] = array[j];
-    }
-    array[j + 1] = temp;
+var insert = function(array, rightIndex, value) {
+  var i;
+  for(i = rightIndex; value < array[i] && i > -1; i--){
+    array[i + 1] = array[i];
   }
-  return array;
-};//complaxity O(NXN)
+  array[i + 1] = value; // i = -1;
+};
 
+var array = [3, 5, 7, 11, 13, 2, 9, 6];
 
-var arr =  [ 35, 4, 16, 4, 65, 1, 64, 1, 43, 3, 10, 31];
-console.log('array - ', arr, arr.length);
-var sortArr = insertionSort(arr);
-console.log('sort array - ', sortArr, sortArr.length);
+insert(array, 4, 2);
+console.log('Array after inserting 2:  ' + array);
+//Program.assertEqual(array, [2, 3, 5, 7, 11, 13, 9, 6]);
 
-/*
-Bucket sort ::-
-Bubble sort ::-
-Selection sort ::-
-Insertion sort ::- order of complaxity = best - 2 average: n^2; worst: n^2
-Heapsort
-Mergesort
-*/
+insert(array, 5, 9);
+console.log('Array after inserting 9:  ' + array);
+//Program.assertEqual(array, [2, 3, 5, 7, 9, 11, 13, 6]);
+
+insert(array, 6, 6);
+console.log('Array after inserting 6:  ' + array);
+//Program.assertEqual(array, [2, 3, 5, 6, 7, 9, 11, 13]);
