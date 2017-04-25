@@ -2,11 +2,12 @@
 
 var insert = function(array, rightIndex, value) {
   var i;
-  for(i = rightIndex; value < array[i] && i > -1; i--){
+  for(i = rightIndex; i >= 0 && value < array[i]; i--){
     array[i + 1] = array[i];
   }
-  array[i + 1] = value; // i = -1;
+  array[i + 1] = value;
 };
+
 
 var array = [3, 5, 7, 11, 13, 2, 9, 6];
 
