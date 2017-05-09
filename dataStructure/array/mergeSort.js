@@ -22,7 +22,7 @@ var merge = function(array, p, q, r) {
     // Repeatedly compare the lowest untaken element in
     //  lowHalf with the lowest untaken element in highHalf
     //  and copy the lower of the two back into array
-  while(i < lowHalf.length && j < highHalf.length && k < array.length){
+  while(i < lowHalf.length && j < highHalf.length){
     if(lowHalf[i] <= highHalf[j]){
       array[k] = lowHalf[i];
       i++;
@@ -50,22 +50,21 @@ var merge = function(array, p, q, r) {
 };
 // Takes in an array and recursively merge sorts it
 var mergeSort = function(array, p, r) {
+  console.log('array IN - ',array, ' p - ',p,' r- ',r);
   if(p<r){
     var q = Math.round((p+r)/2);
-    var a = mergeSort(array.slice(p,q),p,q-1);
-    var b = mergeSort(array.slice(q),p,r-q);
-    array = a.concat(b);
+    mergeSort(array,p,q-1);
+    mergeSort(array,q,r);
     merge(array, p, q-1,r);
   }
-  // console.log('array - OUT - ',array);
-  return array;
+  // console.log('array OUT - ',array);
 };
 
 var array = [14, 7, 3, 12, 9, 11, 6, 2,0];
-array = mergeSort(array, 0, array.length-1);
+mergeSort(array, 0, array.length-1);
 console.log('Array after sorting: ' + array);
 //Result array will be = [0, 2, 3, 6, 7, 9, 11, 12, 14]
 
 var arr = [-4,8,4,6,8,7,64,99,0,-98];
-arr = mergeSort(arr, 0, arr.length-1);
+mergeSort(arr, 0, arr.length-1);
 console.log('Array after sorting: ' + arr);
