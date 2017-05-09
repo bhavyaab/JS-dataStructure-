@@ -34,7 +34,7 @@ var quickSort = function(array, p, r) {
     // console.log('OUT - ' + array + '  q= ' + q,p, r, ' count = ',count);
   }
   // return array;
-};
+}; //Complaxity O(nlog(n))
 
 var array = [3, 7, 5, 11, 191,12, 2, 14, 3, 10, 6];
 quickSort(array, 0, array.length-1);
