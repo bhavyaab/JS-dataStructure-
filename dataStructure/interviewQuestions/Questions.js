@@ -40,4 +40,4 @@ For example:
 // input
 [1 4 2 7 18 3 10 15]
 // output
-5 (gap between 10 and 15)*/
+5 (gap between 10 and 15) ****solving answer5.js*****/
