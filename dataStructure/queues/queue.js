@@ -1,6 +1,6 @@
 'use strict';
 
-const sll = require('./singly-linkedList.js');
+const sll = require('./sll/sll.js');
 
 module.exports = Queue;
 function Node(val){
@@ -37,9 +37,9 @@ Queue.prototype.enqueue = function (val) {
   return;
 };
 
-var q = new Queue();
-q.enqueue(1);
-q.enqueue(12);
-console.log('enqueue',q);
-q.dequeue();
-console.log('dequeue', q);
+// var q = new Queue();
+// q.enqueue(1);
+// q.enqueue(12);
+// console.log('enqueue',q);
+// q.dequeue();
+// console.log('dequeue', q);
