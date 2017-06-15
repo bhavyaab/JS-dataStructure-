@@ -20,8 +20,8 @@ var insertionSort = function(array) {
 
 var array = [3, 15, 7, 11, 13, 2, 9, 6];
 insertionSort(array);
-// insert(array, 4, 2);
-// console.log('Array after inserting 2:  ' + array);
+insert(array, 4, 2);
+console.log('Array after inserting 2:  ' + array);
 //Program.assertEqual(array, [2, 3, 5, 7, 11, 13, 9, 6]);
 
 // insert(array, 5, 9);
