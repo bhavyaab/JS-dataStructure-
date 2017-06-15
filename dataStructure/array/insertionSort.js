@@ -1,11 +1,12 @@
 'use strict';
+var i;
 
-var insert = function(array, rightIndex, value)
-  var i = 0;
+var insert = function(array, rightIndex, value){
   for(i = rightIndex; i >= 0 && value < array[i]; i--){
     array[i + 1] = array[i];
   }
   array[i + 1] = value;
+
 };
 var insertionSort = function(array) {
   for(var i = 1; i < array.length; i++) {
@@ -17,7 +18,7 @@ var insertionSort = function(array) {
 // Best case: Θ(n).
 // Average case for a random array:  Θ(n​xn).
 
-var array = [3, 5, 7, 11, 13, 2, 9, 6];
+var array = [3, 15, 7, 11, 13, 2, 9, 6];
 insertionSort(array);
 // insert(array, 4, 2);
 // console.log('Array after inserting 2:  ' + array);

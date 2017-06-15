@@ -52,3 +52,5 @@ var arr = [1, 4, 2, 7, 18, 3, 10, 3,15];
 var gap = findMaxGap(arr);
 
 console.log('gap = ', gap, ' count - ',count, ' array.length - ',arr.length);
+
+////:::::::::::::: NOT DONE :::::::::::::::::////

@@ -60,3 +60,6 @@ user.prototype.getAllId('/get-by-id/:id', (req,res,next) => {
   .then(array => res.json(array))
   .catch(err => next(createError(404, err.message)));
 });
+
+
+////:::::::::::::: NOT DONE :::::::::::::::::////

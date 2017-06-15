@@ -28,3 +28,4 @@ var succession = function(str){
 
 var output = succession('rrrrSSS##rrrRR');
 console.log(output);
+////:::::::::::::: DONE :::::::::::::::::////
